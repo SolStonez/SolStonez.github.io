@@ -4,6 +4,8 @@ import Report from '../../models/Report';
 
 export default async function handler(req: NextApiRequest, res: NextApiResponse) {
   await dbConnect();
+  
+  console.log('we got to this point')
 
   if (req.method === 'GET') {
     const { facility } = req.query;
