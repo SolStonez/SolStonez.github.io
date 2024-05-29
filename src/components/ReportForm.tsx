@@ -64,7 +64,7 @@ const ReportForm: React.FC<ReportFormProps> = ({ facilityId }) => {
     
     
      
-    if (pin === `246${2}`) {
+    if (pin === process.env.NEXT_PUBLIC_REPORT_PIN_1) {
       setShowPinPopup(false);
       handleSubmit();
     } else {
