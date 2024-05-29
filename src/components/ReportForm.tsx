@@ -99,10 +99,12 @@ const ReportForm: React.FC<ReportFormProps> = ({ facilityId }) => {
 
   return (
     <>
-      <form onSubmit={openPinPopup}>
+      <form onSubmit={openPinPopup} >
         <input type="text" name="name" placeholder="Name of Reporter" value={formData.name} onChange={handleChange} required />
-        <input type="date" name="date" value={formData.date} onChange={handleChange} required />
-        <input type="time" name="time" value={formData.time} onChange={handleChange} required />
+        <div className={styles.formRow}>
+          <input type="date" name="date" value={formData.date} onChange={handleChange} required />
+          <input type="time" name="time" value={formData.time} onChange={handleChange} required />
+        </div>
         <input type="text" name="location" placeholder="Location of concern" value={formData.location} onChange={handleChange} required />
         <textarea name="text" placeholder="Please give as much detail about your report as needed." value={formData.text} onChange={handleChange} required />
         <select name="category" value={formData.category} onChange={handleChange} required className={styles.select}>

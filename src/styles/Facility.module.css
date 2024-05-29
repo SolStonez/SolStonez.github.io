@@ -27,7 +27,7 @@
   }
   
   .evenRow {
-    background-color: #f0f8ff;
+    background-color: #007bff74;
   }
   
   .oddRow {
@@ -93,13 +93,23 @@
     text-align: center;
   }
   
+  .formRow {
+    display: flex;
+    justify-content: space-between;
+  }
+  
+  .formRow input[type="date"],
+  .formRow input[type="time"] {
+    width: 48%; /* Adjust width as needed */
+  }
+  
   @media (max-width: 768px) {
     .table {
       display: block;
       overflow-x: auto;
       white-space: nowrap;
     }
-    .table thead,
+   
     .table tbody,
     .table th,
     .table td,
@@ -115,5 +125,8 @@
       text-align: left;
       width: 100%;
     }
+    .tableTitles {display: none;}
   }
+  
+/* Testing */
   

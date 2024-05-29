@@ -1,5 +1,6 @@
 import Link from 'next/link';
 import { useState, useEffect } from 'react';
+import Footer from '../components/Footer';
 
 const Home: React.FC = () => {
   
@@ -25,6 +26,7 @@ const Home: React.FC = () => {
           </li>
         ))}
       </ul>
+      <Footer />
     </div>
   );
 };

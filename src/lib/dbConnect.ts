@@ -1,4 +1,4 @@
-import mongoose from 'mongoose';    
+import mongoose from 'mongoose';
 
 const MONGO_URI = process.env.MONGO_URI;
 
@@ -35,5 +35,3 @@ async function dbConnect() {
 }
 
 export default dbConnect;
-
-//hello wolrd

@@ -74,7 +74,7 @@ const Facility: React.FC<FacilityProps> = ({ reports }) => {
           ))}
         </select>
         <table className={styles.table}>
-          <thead>
+          <thead className={styles.tableTitles}>
             <tr>
               <th>Name</th>
               <th>Date</th>

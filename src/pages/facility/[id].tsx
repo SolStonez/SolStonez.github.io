@@ -1,8 +1,10 @@
+// pages/facility/[id].tsx
 import { useRouter } from 'next/router';
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import ReportForm from '../../components/ReportForm';
 import Facility from '../../components/Facility';
+import Footer from '../../components/Footer';
 
 const FacilityPage: React.FC = () => {
   const router = useRouter();
@@ -41,10 +43,13 @@ const FacilityPage: React.FC = () => {
 
   return (
     <div>
-      <h1>{facilityName} Maintenance Log</h1>
-      <p>You will need the facility PIN in order to submit work orders, please see Maintenance for the PIN. </p>
+      <div style={{padding: '20px'}}>
+      <h1 style={{textAlign: 'center'}}>{facilityName} Maintenance Log</h1>
+      <p style={{textAlign: 'center'}}>You will need the facility PIN in order to submit work orders, please see Maintenance for the PIN. </p>
       <ReportForm facilityId={id} />
       <Facility reports={reports} />
+      </div>
+      <Footer />
     </div>
   );
 };
