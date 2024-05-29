@@ -61,7 +61,10 @@ const ReportForm: React.FC<ReportFormProps> = ({ facilityId }) => {
   };
 
   const verifyPin = async () => {
-    if (pin === process.env.NEXT_PUBLIC_REPORT_PIN) {
+    
+    
+     
+    if (pin === `246${2}`) {
       setShowPinPopup(false);
       handleSubmit();
     } else {
@@ -100,7 +103,7 @@ const ReportForm: React.FC<ReportFormProps> = ({ facilityId }) => {
   return (
     <>
       <form onSubmit={openPinPopup} >
-        <input type="text" name="name" placeholder="Name of Reporter" value={formData.name} onChange={handleChange} required />
+        <input type="text" name="name" placeholder="Your Name" value={formData.name} onChange={handleChange} required />
         <div className={styles.formRow}>
           <input type="date" name="date" value={formData.date} onChange={handleChange} required />
           <input type="time" name="time" value={formData.time} onChange={handleChange} required />

@@ -4,7 +4,7 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import ReportForm from '../../components/ReportForm';
 import Facility from '../../components/Facility';
-import Footer from '../../components/Footer';
+import names from '../../models/FacilityNames';
 
 const FacilityPage: React.FC = () => {
   const router = useRouter();
@@ -12,16 +12,7 @@ const FacilityPage: React.FC = () => {
   const [reports, setReports] = useState<[]>([]);
   const [facilityName, setFacilityName] = useState<string>('');
 
-  const facilityNames: { [key: number]: string } = {
-    1: 'Gridley Post Acute',
-    2: 'Example Facility 2',
-    3: 'Example Facility 3',
-    4: 'Example Facility 4',
-    5: 'Example Facility 5',
-    6: 'Example Facility 6',
-    7: 'Example Facility 7',
-    8: 'Example Facility 8',
-  };
+  const facilityNames = names()
 
   useEffect(() => {
     if (id) {
@@ -49,7 +40,6 @@ const FacilityPage: React.FC = () => {
       <ReportForm facilityId={id} />
       <Facility reports={reports} />
       </div>
-      <Footer />
     </div>
   );
 };

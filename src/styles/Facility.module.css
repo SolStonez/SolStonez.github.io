@@ -103,6 +103,8 @@
     width: 48%; /* Adjust width as needed */
   }
   
+  
+  
   @media (max-width: 768px) {
     .table {
       display: block;

@@ -1,19 +1,10 @@
 import Link from 'next/link';
 import { useState, useEffect } from 'react';
-import Footer from '../components/Footer';
+import names from '../models/FacilityNames';
 
 const Home: React.FC = () => {
   
-  const facilityNames: { [key: number]: string } = {
-    1: 'Gridley Post Acute',
-    2: 'Example Facility 2',
-    3: 'Example Facility 3',
-    4: 'Example Facility 4',
-    5: 'Example Facility 5',
-    6: 'Example Facility 6',
-    7: 'Example Facility 7',
-    8: 'Example Facility 8',
-  };
+  const facilityNames = names()
   
   
   return (
@@ -26,7 +17,6 @@ const Home: React.FC = () => {
           </li>
         ))}
       </ul>
-      <Footer />
     </div>
   );
 };
