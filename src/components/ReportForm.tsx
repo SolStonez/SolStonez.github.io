@@ -61,8 +61,6 @@ const ReportForm: React.FC<ReportFormProps> = ({ facilityId }) => {
   };
 
   const verifyPin = async () => {
-    
-    
      
     if (pin === process.env.NEXT_PUBLIC_REPORT_PIN) {
       setShowPinPopup(false);

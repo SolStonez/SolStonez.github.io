@@ -91,15 +91,15 @@ const Facility: React.FC<FacilityProps> = ({ reports }) => {
           <tbody>
             {filteredReports.map((report, index) => (
               <tr key={report._id} className={index % 2 === 0 ? styles.evenRow : styles.oddRow}>
-                <td>{report.name}</td>
-                <td>{report.date}</td>
-                <td>{report.time}</td>
-                <td>{report.location}</td>
-                <td>{report.text}</td>
-                <td>{report.category}</td>
-                <td>{report.complete ? 'Complete' : 'Incomplete'}</td>
-                {showCompleted && <td>{report.completedDate}</td>}
-                {showCompleted && <td>{report.completedBy}</td>}
+                <td><div className={styles.smallTitle}>Name: </div>{report.name}</td>
+                <td><div className={styles.smallTitle}>Date: </div>{report.date}</td>
+                <td><div className={styles.smallTitle}>Time: </div>{report.time}</td>
+                <td><div className={styles.smallTitle}>Location: </div>{report.location}</td>
+                <td><div className={styles.smallTitle}>Report: </div>{report.text}</td>
+                <td><div className={styles.smallTitle}>Category: </div>{report.category}</td>
+                <td><div className={styles.smallTitle}>Status: </div>{report.complete ? 'Complete' : 'Incomplete'}</td>
+                {showCompleted && <td><div className={styles.smallTitle}>Date Completed: </div>{report.completedDate}</td>}
+                {showCompleted && <td><div className={styles.smallTitle}>Completed By: </div>{report.completedBy}</td>}
                 {!showCompleted && (
                   <td>
                     <button onClick={() => handleMarkComplete(report._id)} className={styles.completeButton}>
