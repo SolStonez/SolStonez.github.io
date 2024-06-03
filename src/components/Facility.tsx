@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import axios from 'axios';
 import Router from 'next/router';
 import styles from '../styles/Facility.module.css';
+import ReloadButton from '../components/ReloadButton';
 
 interface FacilityProps {
   reports: any[];
@@ -73,6 +74,7 @@ const Facility: React.FC<FacilityProps> = ({ reports }) => {
             </option>
           ))}
         </select>
+        <ReloadButton />
         <table className={styles.table}>
           <thead className={styles.tableTitles}>
             <tr>
