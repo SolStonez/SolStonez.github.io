@@ -61,7 +61,7 @@ const Facility: React.FC<FacilityProps> = ({ reports }) => {
       <div>
         {showCompleted ? <h2>Completed Reports</h2> : <h2>Incomplete Reports</h2>}
         <button onClick={toggleShowCompleted} className={styles.toggleButton}>
-          {showCompleted ? 'Show Incomplete Reports' : 'Show Completed Reports'}
+          {showCompleted ? 'Show Incomplete' : 'Show Completed'}
         </button>
         <select
           value={selectedCategory}
