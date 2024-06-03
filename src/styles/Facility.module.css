@@ -6,7 +6,7 @@
   
   .toggleButton {
     margin: 10px 0;
-    padding: 8px 16px;
+    padding: 4px 8px;
     background-color: #007bff;
     color: #fff;
     border: none;
@@ -89,7 +89,7 @@
   .dropdown {
     margin: 20px 20px;
     padding: 8px;
-    width: 200px;
+    width: 100px;
     text-align: center;
   }
   
