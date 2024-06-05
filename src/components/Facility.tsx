@@ -3,6 +3,8 @@ import axios from 'axios';
 import Router from 'next/router';
 import styles from '../styles/Facility.module.css';
 import ReloadButton from '../components/ReloadButton';
+import categoryList from '../models/categories';
+
 
 interface FacilityProps {
   reports: any[];
@@ -19,7 +21,7 @@ const Facility: React.FC<FacilityProps> = ({ reports }) => {
   const [selectedCategory, setSelectedCategory] = useState('All');
   const refresh = Router;
 
-  const categories = ['All', 'Call light', 'TV', 'Bed', 'Plumbing', 'Lights', 'Miscellaneous'];
+  const categories = categoryList
 
   const markComplete = async (id: string, initials: string, comment: string) => {
     await axios.post('/api/mark-complete', { id, initials, comment });

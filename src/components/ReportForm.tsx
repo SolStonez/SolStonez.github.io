@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import axios from 'axios';
 import { useRouter } from 'next/router';
 import styles from '../styles/Facility.module.css';
+import categoryList from '../models/categories';
 
 interface ReportFormProps {
   facilityId: string | string[];
@@ -32,14 +33,7 @@ const ReportForm: React.FC<ReportFormProps> = ({ facilityId }) => {
   const [pin, setPin] = useState('');
   const router = useRouter();
 
-  const [categories, setCategories] = useState([
-    'Call light',
-    'TV',
-    'Bed',
-    'Plumbing',
-    'Lights',
-    'Miscellaneous'
-  ]);
+  const [categories, setCategories] = useState(categoryList);
 
   useEffect(() => {
     const now = new Date();

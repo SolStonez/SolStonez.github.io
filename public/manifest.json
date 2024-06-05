@@ -3,7 +3,7 @@
     "short_name": "MainLog",
     "description": "Online Maintenance log for West Harbor facilities.",
     "start_url": "/",
-    "display": "standalone",
+    "display": "fullscreen",
     "background_color": "#ffffff",
     "theme_color": "#000000",
     "icons": [
