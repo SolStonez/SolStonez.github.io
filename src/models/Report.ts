@@ -9,6 +9,7 @@ const ReportSchema = new mongoose.Schema({
   text: { type: String, required: true },
   category: {type: String, required: true},
   complete: { type: Boolean, default: false },
+  comment: { type: String, default: null },
   completedDate: { type: String, default: null},
   completedBy: { type: String, default: null}
 });

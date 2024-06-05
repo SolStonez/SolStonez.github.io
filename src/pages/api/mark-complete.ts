@@ -6,7 +6,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
   await dbConnect();
 
   if (req.method === 'POST') { 
-    const { id, initials } = req.body;
+    const { id, initials, comment } = req.body;
     const now = new Date();
     
 
@@ -16,6 +16,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
         report.complete = true;
         report.completedBy = initials
         report.completedDate = now.toISOString().split('T')[0]; // Get YYYY-MM-DD format
+        report.comment = comment
         await report.save();
         res.status(200).send('Report marked as complete');
       } else {

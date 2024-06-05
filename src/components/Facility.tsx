@@ -11,6 +11,7 @@ interface FacilityProps {
 const Facility: React.FC<FacilityProps> = ({ reports }) => {
   const [showCompleted, setShowCompleted] = useState(false);
   const [initials, setInitials] = useState('');
+  const [comment, setComment] = useState('');
   const [pin, setPin] = useState('');
   const [showPopup, setShowPopup] = useState(false);
   const [currentReportId, setCurrentReportId] = useState<string | null>(null);
@@ -20,8 +21,8 @@ const Facility: React.FC<FacilityProps> = ({ reports }) => {
 
   const categories = ['All', 'Call light', 'TV', 'Bed', 'Plumbing', 'Lights', 'Miscellaneous'];
 
-  const markComplete = async (id: string, initials: string) => {
-    await axios.post('/api/mark-complete', { id, initials });
+  const markComplete = async (id: string, initials: string, comment: string) => {
+    await axios.post('/api/mark-complete', { id, initials, comment });
     refresh.reload();
   };
 
@@ -33,7 +34,7 @@ const Facility: React.FC<FacilityProps> = ({ reports }) => {
   const verifyPin = async () => {
     if (pin === process.env.NEXT_PUBLIC_COMPLETE_PIN) {
       if (initials && currentReportId) {
-        markComplete(currentReportId, initials);
+        markComplete(currentReportId, initials, comment);
         setShowPopup(false);
         setInitials('');
         setPin('');
@@ -88,6 +89,7 @@ const Facility: React.FC<FacilityProps> = ({ reports }) => {
               {showCompleted ? null : <th>Action</th>}
               {showCompleted && <th>Date Completed</th>}
               {showCompleted && <th>Completed By</th>}
+              {showCompleted && <th>Comments</th>}
             </tr>
           </thead>
           <tbody>
@@ -102,6 +104,7 @@ const Facility: React.FC<FacilityProps> = ({ reports }) => {
                 <td><div className={styles.smallTitle}>Status: </div>{report.complete ? 'Complete' : 'Incomplete'}</td>
                 {showCompleted && <td><div className={styles.smallTitle}>Date Completed: </div>{report.completedDate}</td>}
                 {showCompleted && <td><div className={styles.smallTitle}>Completed By: </div>{report.completedBy}</td>}
+                {showCompleted && <td><div className={styles.smallTitle}>Comment: </div>{report.comment}</td>}
                 {!showCompleted && (
                   <td>
                     <button onClick={() => handleMarkComplete(report._id)} className={styles.completeButton}>
@@ -124,6 +127,12 @@ const Facility: React.FC<FacilityProps> = ({ reports }) => {
               placeholder="Initials"
               value={initials}
               onChange={(e) => setInitials(e.target.value)}
+            />
+            <input
+              type="text"
+              placeholder="Comments"
+              value={comment}
+              onChange={(e) => setComment(e.target.value)}
             />
             <input
               type="password"
