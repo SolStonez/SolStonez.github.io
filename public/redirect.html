@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Redirect</title>
+</head>
+<body>
+    <script>
+        // Extract parameters from the URL
+        const queryParams = new URLSearchParams(window.location.search);
+
+        // Redirect to the app with the custom URL scheme
+        window.location.href = `maintenancelog://join-team?${queryParams.toString()}`;
+    </script>
+</body>
+</html>
